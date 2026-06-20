@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloomCart | Modern Home Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar" aria-label="Primary navigation">
+            <a class="brand" href="#home" aria-label="BloomCart home">
+                <span class="brand-mark">BC</span>
+                <span>BloomCart</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#deals">Deals</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#checkout">Checkout</a></li>
+            </ul>
+
+            <a class="cart-pill" href="#checkout" aria-label="View cart">
+                <span>Cart</span>
+                <strong id="cartCount">0</strong>
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="rings rings-left" aria-hidden="true"></div>
+            <div class="rings rings-right" aria-hidden="true"></div>
+
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <p class="eyebrow">New Season Home Edit</p>
+                    <h1>Refresh your space with pieces that sell out fast.</h1>
+                    <p class="hero-copy">Shop curated decor, storage, lighting, and soft living essentials with quick dispatch, limited-time bundle savings, and a checkout built for easy ordering.</p>
+
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#shop">Shop Best Sellers</a>
+                        <a class="btn btn-secondary" href="#deals">Claim 20% Off</a>
+                    </div>
+
+                    <div class="hero-stats" aria-label="Store highlights">
+                        <div>
+                            <strong>24h</strong>
+                            <span>Dispatch window</span>
+                        </div>
+                        <div>
+                            <strong>4.9</strong>
+                            <span>Customer rating</span>
+                        </div>
+                        <div>
+                            <strong>20%</strong>
+                            <span>Bundle savings</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-showcase" aria-label="Featured product showcase">
+                    <div class="showcase-card main-product">
+                        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=760&q=80" alt="Modern home decor arrangement">
+                        <div>
+                            <span>Best Seller</span>
+                            <h2>Minimal Home Set</h2>
+                            <p>$89.00</p>
+                        </div>
+                    </div>
+                    <div class="floating-product product-one">
+                        <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=360&q=80" alt="Potted indoor plant">
+                        <span>Plants</span>
+                    </div>
+                    <div class="floating-product product-two">
+                        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=360&q=80" alt="Soft home textile">
+                        <span>Decor</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section category-section" id="shop">
+            <div class="section-heading">
+                <p class="eyebrow">Shop By Category</p>
+                <h2>Shop the fastest-moving home essentials</h2>
+                <p>High-demand pieces grouped for quick decisions, clear pricing, simple cart feedback, and a checkout flow that keeps shoppers moving.</p>
+            </div>
+
+            <div class="category-grid">
+                <article class="category-card">
+                    <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=520&q=80" alt="Indoor plant beside a desk">
+                    <h3>Indoor Plants</h3>
+                    <p>Fresh accents for desks, shelves, and living spaces.</p>
+                </article>
+                <article class="category-card">
+                    <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=520&q=80" alt="Modern home decor">
+                    <h3>Home Decor</h3>
+                    <p>Simple pieces that make everyday rooms feel complete.</p>
+                </article>
+                <article class="category-card">
+                    <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=520&q=80" alt="Comfortable sofa with cushions">
+                    <h3>Soft Living</h3>
+                    <p>Cushions, throws, and comfort-first essentials.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section products-section">
+            <div class="section-heading row-heading">
+                <div>
+                    <p class="eyebrow">Featured Products</p>
+                    <h2>Popular picks shoppers are adding now</h2>
+                </div>
+                <p>Tap any product button to build your order and see the subtotal instantly.</p>
+            </div>
+
+            <div class="product-grid">
+                <article class="product-card" data-name="Ceramic Planter" data-price="24">
+                    <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=520&q=80" alt="Ceramic planter with indoor plant">
+                    <div class="product-body">
+                        <span class="tag">Plants</span>
+                        <h3>Ceramic Planter</h3>
+                        <p>Matte ceramic pot with a low-care accent plant.</p>
+                        <div class="product-footer">
+                            <strong>$24.00</strong>
+                            <button class="add-cart" type="button">Add</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card" data-name="Woven Basket" data-price="38">
+                    <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=520&q=80" alt="Woven storage basket in a home interior">
+                    <div class="product-body">
+                        <span class="tag">Storage</span>
+                        <h3>Woven Basket</h3>
+                        <p>Natural storage for blankets, books, and daily essentials.</p>
+                        <div class="product-footer">
+                            <strong>$38.00</strong>
+                            <button class="add-cart" type="button">Add</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card" data-name="Cotton Throw" data-price="42">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=520&q=80" alt="Neutral sofa with cotton throw">
+                    <div class="product-body">
+                        <span class="tag">Decor</span>
+                        <h3>Cotton Throw</h3>
+                        <p>Soft textured throw for sofas, reading chairs, and beds.</p>
+                        <div class="product-footer">
+                            <strong>$42.00</strong>
+                            <button class="add-cart" type="button">Add</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card" data-name="Desk Lamp" data-price="56">
+                    <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=520&q=80" alt="Minimal desk lamp">
+                    <div class="product-body">
+                        <span class="tag">Lighting</span>
+                        <h3>Desk Lamp</h3>
+                        <p>Warm task lighting with a slim, modern profile.</p>
+                        <div class="product-footer">
+                            <strong>$56.00</strong>
+                            <button class="add-cart" type="button">Add</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="deal-section" id="deals">
+            <div class="deal-inner">
+                <div>
+                    <p class="eyebrow">Limited Offer</p>
+                    <h2>Save 20% on curated home bundles</h2>
+                    <p>Use promo code BLOOM20 at checkout. Bundle your favorites today and get a polished room refresh for less.</p>
+                </div>
+                <a class="btn btn-primary" href="#shop">Explore Deals</a>
+            </div>
+        </section>
+
+        <section class="section about-section" id="about">
+            <div class="about-grid">
+                <div>
+                    <p class="eyebrow">About BloomCart</p>
+                    <h2>A simple online store for fresh home essentials</h2>
+                    <p>BloomCart is a modern e-commerce website for curated home products such as decor, storage, lighting, textiles, and indoor accents. The name combines "Bloom" and "Cart": Bloom means growth, freshness, and a better-looking space, while Cart represents the easy shopping experience where customers can add products and checkout quickly.</p>
+                </div>
+                <div class="benefit-list">
+                    <article>
+                        <h3>What BloomCart sells</h3>
+                        <p>Useful, stylish home pieces that help customers refresh a room without searching through a crowded catalog.</p>
+                    </article>
+                    <article>
+                        <h3>What the name means</h3>
+                        <p>"Bloom" reflects fresh style and a better home atmosphere. "Cart" shows that the brand is built around simple online shopping.</p>
+                    </article>
+                    <article>
+                        <h3>Why shoppers use it</h3>
+                        <p>The page highlights best sellers, savings, ratings, clear prices, and quick checkout so buyers can choose with confidence.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="checkout-section" id="checkout">
+            <div class="checkout-grid">
+                <div>
+                    <p class="eyebrow">Checkout</p>
+                    <h2>Your order summary</h2>
+                    <div class="cart-summary">
+                        <div>
+                            <span>Items</span>
+                            <strong id="summaryItems">0</strong>
+                        </div>
+                        <div>
+                            <span>Subtotal</span>
+                            <strong id="summaryTotal">$0.00</strong>
+                        </div>
+                    </div>
+                    <p class="cart-note" id="cartNote">Add products from the shop section to begin your order.</p>
+                </div>
+
+                <form class="checkout-form" id="checkoutForm">
+                    <label>
+                        <span>Full Name</span>
+                        <input type="text" name="name" placeholder="Your name" required>
+                    </label>
+                    <label>
+                        <span>Email Address</span>
+                        <input type="email" name="email" placeholder="you@example.com" required>
+                    </label>
+                    <label>
+                        <span>Delivery Address</span>
+                        <textarea name="address" rows="4" placeholder="Street, city, postal code" required></textarea>
+                    </label>
+                    <button class="btn btn-primary" type="submit">Place Order</button>
+                    <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 BloomCart. Modern home essentials store.</p>
+        <a href="#home">Back to top</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
