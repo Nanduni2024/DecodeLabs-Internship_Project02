@@ -1,72 +1,75 @@
 const express = require('express');
+const db = require('./db');
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
 
-let items = [
-    { id: 1, name: 'Item One' },
-    { id: 2, name: 'Item Two' }
-];
-
 app.get('/', (req, res) => {
-    res.send('Backend API is running!');
+    res.send('Backend API with Database Integration is running!');
 });
 
-// GET /items: Retrieve all items
+// GET /items: Retrieve all items from database
 app.get('/items', (req, res) => {
-    res.status(200).json(items);
+    db.all('SELECT * FROM items', [], (err, rows) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.status(200).json(rows);
+    });
 });
 
-// POST /items: Add a new item
+// POST /items: Add a new item to database
 app.post('/items', (req, res) => {
-    const newItem = req.body;
+    const { name } = req.body;
     
-    // Input Validation (Optional Challenge)
-    if (!newItem.id || !newItem.name) {
-        return res.status(400).json({ error: 'id and name are required' });
+    // Input Validation
+    if (!name) {
+        return res.status(400).json({ error: 'name is required' });
     }
     
-    // Check if ID already exists
-    const exists = items.some(item => item.id === newItem.id);
-    if (exists) {
-        return res.status(400).json({ error: 'Item with this id already exists' });
-    }
-
-    items.push(newItem);
-    res.status(201).json({ message: 'Item added!', item: newItem });
+    db.run('INSERT INTO items (name) VALUES (?)', [name], function(err) {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        // Return the newly created item
+        res.status(201).json({ message: 'Item added!', item: { id: this.lastID, name } });
+    });
 });
 
-// PUT /items/:id: Update an item (Optional Challenge)
+// PUT /items/:id: Update an item in database
 app.put('/items/:id', (req, res) => {
     const id = parseInt(req.params.id, 10);
-    const updatedData = req.body;
+    const { name } = req.body;
     
-    const index = items.findIndex(item => item.id === id);
-    if (index === -1) {
-        return res.status(404).json({ error: 'Item not found' });
-    }
-    
-    // Basic validation
-    if (!updatedData.name) {
+    if (!name) {
         return res.status(400).json({ error: 'name is required to update' });
     }
     
-    items[index] = { ...items[index], name: updatedData.name };
-    res.status(200).json({ message: 'Item updated!', item: items[index] });
+    db.run('UPDATE items SET name = ? WHERE id = ?', [name, id], function(err) {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        if (this.changes === 0) {
+            return res.status(404).json({ error: 'Item not found' });
+        }
+        res.status(200).json({ message: 'Item updated!', item: { id, name } });
+    });
 });
 
-// DELETE /items/:id: Remove an item (Optional Challenge)
+// DELETE /items/:id: Remove an item from database
 app.delete('/items/:id', (req, res) => {
     const id = parseInt(req.params.id, 10);
-    const index = items.findIndex(item => item.id === id);
     
-    if (index === -1) {
-        return res.status(404).json({ error: 'Item not found' });
-    }
-    
-    const deletedItem = items.splice(index, 1);
-    res.status(200).json({ message: 'Item deleted!', item: deletedItem[0] });
+    db.run('DELETE FROM items WHERE id = ?', id, function(err) {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        if (this.changes === 0) {
+            return res.status(404).json({ error: 'Item not found' });
+        }
+        res.status(200).json({ message: 'Item deleted successfully!' });
+    });
 });
 
 app.listen(PORT, () => {
